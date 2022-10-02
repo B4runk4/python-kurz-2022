@@ -5,9 +5,10 @@ baliky = {
     "B501X": True,
     "B947X": False,
 }
-for z in baliky.values():
-    if z == True:
-        print("Balík byl předán kurýrovi")
-    else:
-        print("Balík zatím nebyl předán kurýrovi")
-    z + 1
+
+balik = input('Zadej cislo baliku: ')
+
+if baliky[balik]:
+    print ("Balík byl předán kurýrovi")
+else:
+    print("Balík zatím nebyl předán kurýrovi")

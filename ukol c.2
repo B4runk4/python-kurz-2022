@@ -490,10 +490,13 @@ staty = [
      'area': 390757.0}]
 
 reg = input("Zadej region: ")
+name = []
 
 for stat in staty:
     if stat["region"] == reg:
-        name = stat["name"]
-        print(name)
-    else:
-        print("Neznámý region")
+        name.append(stat["name"])
+
+if name:
+    print(name)
+else:
+    print("Neznamy region")

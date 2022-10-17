@@ -1,0 +1,13 @@
+def sms():
+    cislo = input("Zadej cislo pro zasilani zprav: ")
+    print(len(cislo))
+    if len(cislo) == 9 or 13:
+        print(True)
+    else:
+        print(False)
+    zprava = input("Zadej zneni zpravy: ")
+    if len(zprava) <= 180:
+        print("Cena zpravy je 3 kc.")
+    else:
+        print("Cena zpravy je 6 kc.")
+sms()

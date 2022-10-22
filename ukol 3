@@ -1,13 +1,22 @@
-def sms():
-    cislo = input("Zadej cislo pro zasilani zprav: ")
-    print(len(cislo))
-    if len(cislo) == 9 or 13:
-        print(True)
-    else:
-        print(False)
-    zprava = input("Zadej zneni zpravy: ")
+def check_number(tel_number):
+    if len(tel_number) == 9:   
+        return True
+    elif "+420" in tel_number and len(tel_number) == 13:
+        return True
+    else:                      
+        return False
+
+def price_of_sms(zprava):
     if len(zprava) <= 180:
-        print("Cena zpravy je 3 kc.")
+        price = 3
     else:
-        print("Cena zpravy je 6 kc.")
-sms()
+        price = (len(zprava)//180 + 1) * 3 
+    return price
+    
+
+tel_number = input('Zadej cislo: ')
+if check_number(tel_number):
+    zprava = input('Zadej zpravu: ') 
+    print(f"Zprava bude stat {price_of_sms(zprava)} Kc.")
+else:
+    print(f'Cislo {tel_number} neni platne.')

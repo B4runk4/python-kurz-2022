@@ -493,10 +493,10 @@ reg = input("Zadej region: ")
 name = []
 
 for stat in staty:
-    if stat["region"] == reg:
-        name.append(stat["name"])
+if stat["region"] == reg:
+name.append(stat["name"])
 
 if name:
-    print(name)
+print(name)
 else:
-    print("Neznamy region")
+print("Neznamy region")

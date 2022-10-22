@@ -1,0 +1,33 @@
+class Recept:
+    def __init__(self, nazev = str, narocnost = str, url_adresa = str):
+        self.nazev = nazev
+        self.narocnost = narocnost
+        self.url_adresa = url_adresa
+        self.vyzkouseno = False
+    
+    def __str__(self):
+        if self.vyzkouseno:
+            return f"{self.nazev}, narocnost je {self.narocnost}, uz vyzkouseno."
+        else:
+            return f"{self.nazev}, narocnost je {self.narocnost}, jeste neyzkouseno."
+
+    def zmen_narocnost(self, nova_hodnota):
+        self.narocnost = nova_hodnota
+    
+    def zkusit(self):
+        self.vyzkouseno = True
+
+class Kucharka:
+    def __init__(self, nazev, autor):
+        self.nazev = nazev
+        self.autor = autor
+        self.recepty = []
+
+    def __str__(self):
+        return f"{self.nazev} od {self.autor}, {len(self.recepty)} receptu."
+    
+    def pocet_receptu(self):
+        return len(self.recepty)
+    
+    def pridej_recept(self, recept):
+        self.recepty.append(recept)

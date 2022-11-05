@@ -1,3 +1,4 @@
+DEDICNOST
 class Nemoc:
     def __init__(self, jmeno, inkubacni_doba, pocet_obeti, sireni):
         self.jmeno = jmeno
@@ -24,3 +25,34 @@ class Koronavirus(Nemoc):
 
 omikron = Koronavirus('Coronavirus', ['omikron'])
 print(omikron)
+
+LIST COMPREHENSION
+1. ukol
+cisla = [1.12, 4.51, 2.64, 13.1, 0.1]
+
+nasobeni = [cislo*2 for cislo in cisla]
+print(nasobeni)
+
+znamenko = [cislo * (-1) for cislo in cisla]
+print(znamenko)
+
+umocneni = [cislo**2 for cislo in cisla]
+print(umocneni)
+
+retezec = [str(cislo) for cislo in cisla]
+print(retezec)
+
+2. ukol
+jmena = ['Roman', 'Jan', 'Miroslav', 'Petr', 'Gabriel']
+
+pocet_pismen = [len(jmeno) for jmeno in jmena]
+print(pocet_pismen)
+
+velka_pismena = [upper(jmeno) for jmeno in jmena]
+print(velka_pismena)
+
+zenska_jmena = [jmeno+"a" for jmeno in jmena]
+print(zenska_jmena)
+
+email = [lower(jmeno)+'@email.cz' for jmeno in jmena]
+print(email)

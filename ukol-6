@@ -1,0 +1,10 @@
+with open('vykaz_znamek.txt', encoding='utf-8') as vstup:
+    radky = vstup.readlines()
+    
+zmena_znamek = [radek.replace("1", "A").replace("2", "B").replace("3", "C").replace("4", "D").replace("5", "E") for radek in radky]
+
+for znamky in zmena_znamek:
+    print(znamky)
+
+with open("zmeneny_vykaz_znamek.txt", mode="w", encoding="utf-8") as vystup:
+    vystup.writelines(zmena_znamek)

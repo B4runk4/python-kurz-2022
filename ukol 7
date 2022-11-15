@@ -1,0 +1,19 @@
+prvni_datum = datetime(2021, 7, 1)
+druhe_datum = datetime(2021, 8, 10)
+treti_datum = datetime(2021, 8, 11)
+ctvrte_datum = datetime(2021, 8, 31)
+
+def prodej_vstupenek():
+    datum = input("Jake je datum?")
+    datum = datetime.strptime(datum, "%d.%m.%Y")
+    pocet_osob = int(input("Zadej pocet osob:"))
+    if prvni_datum <= datum <= druhe_datum:
+        cena = (pocet_osob * 250)
+        print(f"Cena za vstupenky v tuto dobu je {cena} kc.")
+    elif treti_datum <= datum <= ctvrte_datum:
+        cena = (pocet_osob * 180)
+        print(f"Cena za vstupenky v tuto dobu je {cena} kc.")
+    else:
+        print("Letni kino je v tuto dobu zavrene.")
+
+prodej_vstupenek()

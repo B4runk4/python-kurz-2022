@@ -1,0 +1,13 @@
+import pandas
+adopce = pandas.read_csv('adopce_zvirat.csv', sep =';')
+print(adopce)
+print(adopce.shape)
+print(adopce.iloc[34])
+
+#BONUS
+import pandas
+adopce = pandas.read_csv('adopce_zvirat.csv', sep =';', index_col = "nazev_cz")
+print(adopce.index.is_unique)
+print(adopce.sort_index())
+print(adopce.loc["Outloň váhavý"])
+print(adopce.loc["Želva Smithova":"Želva žlutočelá"])

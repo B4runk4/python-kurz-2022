@@ -1,0 +1,45 @@
+import requests
+
+r = requests.get("https://raw.githubusercontent.com/andywaltlova/python-1-podzim-2022/master/ukoly/data/zam_praha.csv")
+open("zam_praha.csv", "wb").write(r.content)
+
+r = requests.get("https://raw.githubusercontent.com/andywaltlova/python-1-podzim-2022/master/ukoly/data/zam_plzeň.csv")
+open("zam_plzeň.csv", "wb").write(r.content)
+
+r = requests.get("https://raw.githubusercontent.com/andywaltlova/python-1-podzim-2022/master/ukoly/data/zam_liberec.csv")
+open("zam_liberec.csv", "wb").write(r.content)
+
+r = requests.get("https://raw.githubusercontent.com/andywaltlova/python-1-podzim-2022/master/ukoly/data/platy_2021_02.csv")
+open("platy_2021_02.csv", "wb").write(r.content)
+
+import pandas
+
+praha = pandas.read_csv("zam_praha.csv")
+liberec = pandas.read_csv("zam_plzeň.csv")
+plzen = pandas.read_csv("zam_liberec.csv")
+
+praha["mesto"] = "Praha"
+liberec["mesto"] = "Liberec"
+plzen["mesto"] = "Plzen"
+
+zamestnanci = pandas.concat([praha, liberec, plzen], ignore_index=True)
+
+platy = pandas.read_csv("platy_2021_02.csv")
+
+propojene_platy = pandas.merge(zamestnanci, platy)
+print(propojene_platy)
+
+prumer = propojene_platy.groupby("mesto").mean("plat")
+print(prumer)
+
+import requests
+
+r = requests.get("https://raw.githubusercontent.com/andywaltlova/python-1-podzim-2022/master/ukoly/data/vykazy.csv")
+open("vykazy.csv", "wb").write(r.content)
+
+import pandas
+
+vykazy = pandas.read_csv("vykazy.csv")
+
+pocet_hodin = vykazy.groupby("project").sum("hours")
+print(pocet_hodin)
